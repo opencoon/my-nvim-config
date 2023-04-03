@@ -1,5 +1,8 @@
 map { "<F4>", ":NvimTreeToggle<CR>" }
 nnoremap { "<leader>f", ":NvimTreeToggle<CR>" }
+nnoremap { "<leader>ff", ":NvimTreeFindFile<CR>" }
+nnoremap { "<leader>fc", ":NvimTreeFocus<CR>" }
+
 -- NvimTreeOpen and NvimTreeClose are also available if you need them
 -- a list of groups can be found at `:help nvim_tree_highlight`
 -- vim.cmd [[highlight NvimTreeFolderIcon guifg=#1b95e0]]
@@ -43,7 +46,7 @@ require("nvim-tree").setup {
 	},
 	actions = {
 		open_file = {
-			quit_on_open = true,
+			quit_on_open = false,
 			window_picker = {
 				exclude = {
 					filetype = {

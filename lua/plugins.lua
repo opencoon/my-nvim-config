@@ -26,6 +26,8 @@ require("lazy").setup({
 	-- Tree-sitter grammar for Justfiles (https://github.com/casey/just)
 	"IndianBoy42/tree-sitter-just",
 
+	"fladson/vim-kitty",
+
 	-- alternatives: https://github.com/nvim-neo-tree/neo-tree.nvim
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -131,7 +133,22 @@ require("lazy").setup({
 
 	-- RON: Rusty Object Notation
 	"ron-rs/ron.vim",
+	"f-person/git-blame.nvim",
 
+	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("config.nvim-dap")
+		end
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {"mfussenegger/nvim-dap"},
+		config = function()
+			require("dapui").setup{
+			}
+		end,
+  },
 	-- vala
 	-- https://github.com/arrufat/vala.vim
 	-- Automatic detection of .vala, .vapi and .valadoc files
@@ -149,6 +166,7 @@ require("lazy").setup({
 	-- For luasnip user.
 	{
 		"L3MON4D3/LuaSnip",
+		disbale = true,
 		dependencies = { "rafamadriz/friendly-snippets" },
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()

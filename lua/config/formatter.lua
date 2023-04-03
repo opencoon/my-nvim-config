@@ -1,3 +1,4 @@
+-- 代码格式化
 vim.api.nvim_create_autocmd("BufWritePost", {
 	group = vim.api.nvim_create_augroup("FormatAutogroup", { clear = true }),
 	pattern = { "*.lua", "*.{hcl,nomad,terraform,tf}", "*.{yaml,yml}", "*.{proto,proto3,proto2}" },

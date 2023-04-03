@@ -1,3 +1,4 @@
+-- 语法高亮和代码折叠
 require("nvim-treesitter.configs").setup {
 	ensure_installed = { "query", "c", "go", "rust", "php", "python", "lua", "json", "toml", "vue", "css", "html", "bash", "hcl" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	highlight = {

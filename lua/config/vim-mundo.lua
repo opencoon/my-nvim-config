@@ -1,6 +1,7 @@
 nnoremap { "<F7>", ":MundoToggle<CR>" }
 nnoremap { "<leader>h", ":MundoToggle<cr>" }
 
+-- 修改记录
 Variable.g {
 	-- Default: 1 (auto preview diff)
 	mundo_auto_preview = 1,

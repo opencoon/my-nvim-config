@@ -1,3 +1,4 @@
+-- 代码缩进
 require("indent_guides").setup {
 	indent_guide_size = 1,
 	indent_start_level = 2,

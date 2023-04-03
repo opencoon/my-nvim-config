@@ -1,3 +1,4 @@
+-- 语法检测
 require("lint").linters_by_ft = {
 	markdown = { "vale" },
 	sh = { "shellcheck" },

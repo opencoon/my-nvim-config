@@ -39,5 +39,5 @@ local opts = { noremap = true, silent = true }
 map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
-map("n", "<A-j>", "<CMD>lua __fterm_gitui()<CR>", opts)
-map("t", "<A-j>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)
+map("n", "<A-I>", "<CMD>lua __fterm_gitui()<CR>", opts)
+map("t", "<A-I>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)

@@ -1,5 +1,6 @@
 -- keymap from https://neovim.io/doc/user/lsp.html
 -- https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
+-- 语言服务协议 代码补全，错误检测，重构，代码导航
 nnoremap { "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", silent = true }
 
 nnoremap { "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", silent = true }
@@ -14,7 +15,7 @@ nnoremap { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", silent = true }
 nnoremap { "<Leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", silent = true }
 nnoremap { "<Leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", silent = true }
 nnoremap { "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", silent = true }
-nnoremap { "<Leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent = true }
+nnoremap { "<Leader>id", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent = true }
 nnoremap { "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", silent = true }
 -- lspsaga currently can not popup with current name of the symbol in the popup
 -- https://github.com/glepnir/lspsaga.nvim/issues/186
