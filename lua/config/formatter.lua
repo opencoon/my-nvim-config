@@ -1,7 +1,7 @@
 -- 代码格式化
 vim.api.nvim_create_autocmd("BufWritePost", {
 	group = vim.api.nvim_create_augroup("FormatAutogroup", { clear = true }),
-	pattern = { "*.lua", "*.{hcl,nomad,terraform,tf}", "*.{yaml,yml}", "*.{proto,proto3,proto2}" },
+	pattern = { "*.lua", "*.{hcl,nomad,terraform,tf}", "*.{yaml,yml}", "*.{proto,proto3,proto2}","*.{vue,js,ts,tsx}" },
 	callback = function(opts)
 		vim.api.nvim_command "FormatWrite"
 	end,
@@ -14,6 +14,26 @@ require("formatter").setup {
 	log_level = vim.log.levels.TRACE,
 	filetype = {
 		javascript = {
+			-- prettier
+			function()
+				return {
+					exe = "prettier",
+					args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+					stdin = true,
+				}
+			end,
+		},
+		vue = {
+			-- prettier
+			function()
+				return {
+					exe = "prettier",
+					args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote" },
+					stdin = true,
+				}
+			end,
+		},
+		typescript = {
 			-- prettier
 			function()
 				return {

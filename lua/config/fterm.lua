@@ -18,9 +18,14 @@ local gitui = term:new():setup {
 		width = 0.9,
 	},
 }
--- Use this to toggle gitui in a floating terminal
 function _G.__fterm_gitui()
 	gitui:toggle()
+end
+
+local termp = term:new():setup {
+}
+function _G.__fterm_termp()
+	termp:toggle()
 end
 
 -- Running bpytop
@@ -39,5 +44,8 @@ local opts = { noremap = true, silent = true }
 map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
-map("n", "<A-I>", "<CMD>lua __fterm_gitui()<CR>", opts)
-map("t", "<A-I>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)
+map("n", "<A-O>", "<CMD>lua __fterm_gitui()<CR>", opts)
+map("t", "<A-O>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)
+
+map("n", "<A-I>", "<CMD>lua __fterm_termp()<CR>", opts)
+map("t", "<A-I>", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)

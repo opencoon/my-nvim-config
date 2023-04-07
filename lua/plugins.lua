@@ -44,7 +44,7 @@ require("lazy").setup({
 			require("spectre").setup {}
 			-- open
 			vim.api.nvim_set_keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", { silent = true })
-
+			vim.api.nvim_set_keymap("n", "<leader>sc", "<cmd>lua require('spectre').close()<CR>", { silent = true })
 			-- search current word
 			vim.api.nvim_set_keymap("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
 			vim.api.nvim_set_keymap("v", "<leader>S", "<esc>:lua require('spectre').open_visual()<CR> ", { silent = true })
@@ -330,6 +330,8 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("alpha").setup(require("alpha.themes.startify").config)
+			nnoremap { "<leader>al", ":Alpha<cr>" }
+
 			-- require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
 		end,
 	},
@@ -411,6 +413,10 @@ require("lazy").setup({
 	{
 		"sindrets/diffview.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			nnoremap { "<leader>dvv", ":DiffviewOpen<cr>" }
+			nnoremap { "<leader>dvc", ":DiffviewClose<cr>" }
+		end
 	},
 
 	{

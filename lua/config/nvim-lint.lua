@@ -4,6 +4,9 @@ require("lint").linters_by_ft = {
 	sh = { "shellcheck" },
 	go = { "golangcilint" },
 	dockerfile = { "hadolint" },
+  javascript = {"eslint"},
+  typescript = {"eslint"},
+  vue = {"eslint"}
 }
 
 TryLint = function()
