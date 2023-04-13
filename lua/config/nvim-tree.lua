@@ -22,8 +22,8 @@ require("nvim-tree").setup {
 		width = 45, -- 30 by default
 	},
 	filters = {
-		dotfiles = true, -- hide dot files
-		custom = { ".git", "node_modules", ".cache", ".idea" }, -- custom hide
+		dotfiles = false, -- hide dot files
+		custom = { ".git", ".cache", ".idea" }, -- custom hide
 	},
 	renderer = {
 		root_folder_modifier = ":~",
@@ -52,7 +52,7 @@ require("nvim-tree").setup {
 					filetype = {
 						"packer",
 						"qf",
-						"startify",
+						-- "startify",
 					},
 					buftype = {
 						"terminal",

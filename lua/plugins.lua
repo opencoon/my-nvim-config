@@ -54,6 +54,13 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"rest-nvim/rest.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" }
+	},
+
+	"tpope/vim-dadbod",
+	"kristijanhusak/vim-dadbod-ui",
 	-- https://github.com/folke/todo-comments.nvim
 	{
 		"folke/todo-comments.nvim",
@@ -139,6 +146,12 @@ require("lazy").setup({
 		"mfussenegger/nvim-dap",
 		config = function()
 			require("config.nvim-dap")
+		end
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		config = function()
+			require("nvim-dap-virtual-text").setup()
 		end
 	},
 	{
@@ -415,7 +428,10 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			nnoremap { "<leader>dvv", ":DiffviewOpen<cr>" }
-			nnoremap { "<leader>dvc", ":DiffviewClose<cr>" }
+			nnoremap { "<leader>dvx", ":DiffviewClose<cr>" }
+			nnoremap { "<leader>dvh", ":DiffviewFileHistory<cr>" }
+			nnoremap { "<leader>dvh", ":DiffviewFileHistory<cr>" }
+			nnoremap { "<leader>dvc", ":DiffviewFileHistory %<cr>" }
 		end
 	},
 

@@ -1,6 +1,6 @@
 -- 语法高亮和代码折叠
 require("nvim-treesitter.configs").setup {
-	ensure_installed = { "query", "c", "go", "rust", "php", "python", "lua", "json", "toml", "vue", "css", "html", "bash", "hcl" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = { "query", "c", "go", "rust", "php", "python", "lua", "json", "toml", "vue", "css", "html", "bash", "typescript", "javascript", "http" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "markdown" }, -- list of language that will be disabled
@@ -39,7 +39,7 @@ require("nvim-treesitter.configs").setup {
 -- hlmap["punctuation.bracket"] = nil
 
 -- nomad
-local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
-ft_to_parser.nomad = "hcl" -- the nomad filetype will use the hcl parser and queries.
-ft_to_parser.tf = "hcl"
-ft_to_parser.terraform = "hcl"
+-- local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+-- ft_to_parser.nomad = "hcl" -- the nomad filetype will use the hcl parser and queries.
+-- ft_to_parser.tf = "hcl"
+-- ft_to_parser.terraform = "hcl"
