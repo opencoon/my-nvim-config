@@ -563,7 +563,7 @@ local ft_au_group = vim.api.nvim_create_augroup("FileTemplate", { clear = false 
 for _, tmpl in ipairs(template_files) do
 	local ext = vim.fn.fnamemodify(tmpl, ":e")
 
-	vim.api.nvim_create_autocmd("BufNewFile", {
+vim.api.nvim_create_autocmd("BufNewFile", {
 		group = ft_au_group,
 		pattern = { string.format("*.%s", ext) },
 		callback = function()

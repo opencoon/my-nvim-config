@@ -81,9 +81,9 @@ cmp.setup {
 		-- https://github.com/zbirenbaum/copilot-cmp
 		-- { name = "copilot", group_index = 1 },
 
-		{ name = "cmp_tabnine", group_index = 2 },
+		{ name = "cmp_tabnine", group_index = 3 },
 
-		{ name = "nvim_lsp", group_index = 3 },
+		{ name = "nvim_lsp", group_index = 2 },
 
 		-- For vsnip user.
 		-- { name = "vsnip" },
@@ -94,9 +94,9 @@ cmp.setup {
 		{ name = "nvim_lua", group_index = 4 },
 
 		-- For ultisnips user.
-		-- { name = "ultisnips" },
+		{ name = "ultisnips" , group_index = 3 },
 
-		{ name = "crates", group_index = 4 },
+		-- { name = "crates", group_index = 4 },
 
 		-- { name = "omni" },
 

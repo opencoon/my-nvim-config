@@ -4,6 +4,7 @@ require "utils"
 
 -- nnoremap { '<leader>hello', function() print("Hello world, from lua") end }
 
+vim.cmd("silent! packadd lazy")
 require("lazy").setup({
 	-- treesitter = AST (syntax/parsing)
 	-- LSP = whole-project semantic analysis
@@ -11,7 +12,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		-- branch = "0.5-compat",
-		build = ":TSUpdate",
+		-- build = ":TSUpdate",
 		config = function()
 			require "config.nvim-treesitter"
 		end,
@@ -56,11 +57,64 @@ require("lazy").setup({
 
 	{
 		"rest-nvim/rest.nvim",
+		config = function()
+			require("rest-nvim").setup({
+				-- Open request results in a horizontal split
+				result_split_horizontal = false,
+				-- Keep the http file buffer above|left when split horizontal|vertical
+				result_split_in_place = false,
+				-- Skip SSL verification, useful for unknown certificates
+				skip_ssl_verification = false,
+				-- Encode URL before making request
+				encode_url = true,
+				-- Highlight request on run
+				highlight = {
+					enabled = true,
+					timeout = 150,
+				},
+				result = {
+					-- toggle showing URL, HTTP info, headers at top the of result window
+					show_url = true,
+					show_http_info = true,
+					show_headers = true,
+					-- executables or functions for formatting response body [optional]
+					-- set them to false if you want to disable them
+					formatters = {
+						json = "jq",
+						html = function(body)
+							return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
+						end
+					},
+				},
+				-- Jump to request line on run
+				jump_to_request = false,
+				env_file = '.env',
+				custom_dynamic_variables = {},
+				yank_dry_run = true,
+			})
+			nnoremap { "<leader>ap", ":lua require('rest-nvim').run()<cr>" }
+			vnoremap { "<leader>ap", ":lua require('rest-nvim').run()<cr>" }
+		end,
 		dependencies = { "nvim-lua/plenary.nvim" }
 	},
 
 	"tpope/vim-dadbod",
-	"kristijanhusak/vim-dadbod-ui",
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		config = function()
+			nnoremap { "<leader>db", ":DBUI<cr>" }
+			vnoremap { "<leader>db", ":DBUI<cr>" }
+		end
+	},
+
+	{
+		"voldikss/vim-translate-me",
+		config = function()
+			vmap {"<Leader>fy",":Translate<Enter>"}
+			nmap {"<Leader>fy",":Translate<Enter>"}
+		end
+	},
+
 	-- https://github.com/folke/todo-comments.nvim
 	{
 		"folke/todo-comments.nvim",
@@ -182,7 +236,7 @@ require("lazy").setup({
 		disbale = true,
 		dependencies = { "rafamadriz/friendly-snippets" },
 		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load()
+			-- require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
 	"saadparwaiz1/cmp_luasnip",

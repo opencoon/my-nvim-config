@@ -36,13 +36,48 @@ function M.init(dap)
 	end
 
 	-- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+	local utils = require("dap.utils")
+	local projectConfigPath = {
+		cms = './config/nacos-test/test/cms/cms-api.toml',
+		configCenter = './config/nacos-test/test/im/config-center.toml'
+	}
+	-- 创建命令
 	dap.configurations.go = {
 		{
-			type = "go",
-			name = "Debug",
-			request = "launch",
-			program = "${env:PN}/main.go",
-			args = {'--config',"${env:PC}"},
+			type = 'go',
+			name = 'Debug',
+			request = 'launch',
+			program = '${env:PWD}/main.go',
+			args = default_args,
+			preLaunch = function()
+				-- 弹出窗口，获取用户输入
+				local prompt = 'Enter the arguments for the Go program:'
+				local result = vim.fn.input(prompt)
+
+				-- 检查用户输入
+				if result == nil or result:match('^%s*$') then
+					-- 如果用户未输入参数，则将 args 字段设置为空值
+					dap.configurations.go[1].args = {}
+				else
+					-- 如果用户输入了参数，则拆分为字符串数组并更新 args 字段
+					local args = vim.split(result, ' ')
+					dap.configurations.go[1].args = args
+
+					-- 检查用户输入是否为 'cms-api'
+					if result == 'cms-api' then
+						dap.configurations.go[1].args = {'--config', projectConfigPath.cms}
+					end
+					-- 检查用户输入是否为 'config-center'
+					if result == 'config-center' then
+						dap.configurations.go[1].args = {'--config', projectConfigPath.configCenter}
+					end
+
+					local message = 'Go program arguments: ' .. vim.inspect(dap.configurations.go[1].args)
+					utils.notify(message)
+					-- vim.api.nvim_echo({{message, 'Normal'}}, true, {})
+
+				end
+			end,
 		},
 	}
 end
