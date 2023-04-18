@@ -94,7 +94,7 @@ cmp.setup {
 		{ name = "nvim_lua", group_index = 4 },
 
 		-- For ultisnips user.
-		{ name = "ultisnips" , group_index = 3 },
+		-- { name = "ultisnips" , group_index = 3 },
 
 		-- { name = "crates", group_index = 4 },
 
