@@ -235,7 +235,9 @@ require("lazy").setup({
 		"L3MON4D3/LuaSnip",
 		dependencies = { "rafamadriz/friendly-snippets" },
 		config = function()
-			-- require("luasnip.loaders.from_vscode").lazy_load()
+			require("luasnip.loaders.from_vscode").lazy_load()
+			local config_path = vim.fn.stdpath('config')
+			require("luasnip.loaders.from_snipmate").lazy_load({ paths = {config_path .. "/UltiSnips"}})
 		end,
 	},
 	"saadparwaiz1/cmp_luasnip",
@@ -263,16 +265,7 @@ require("lazy").setup({
 	-- },
 
 	-- complete plugin
-	{
-		"hrsh7th/cmp-nvim-lsp",
-		dependencies = {
-			'rafamadriz/friendly-snippets',
-			'L3MON4D3/LuaSnip',
-		},
-		config = function()
-			-- the rest of your configuration
-		end
-	},
+	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",

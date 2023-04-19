@@ -89,7 +89,7 @@ cmp.setup {
 		-- { name = "vsnip" },
 
 		-- For luasnip user.
-		{ name = "luasnip", group_index = 4 },
+		{ name = "luasnip", group_index = 1, option = { show_autosnippets = true } },
 
 		{ name = "nvim_lua", group_index = 4 },
 

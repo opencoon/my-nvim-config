@@ -1,0 +1,24 @@
+snippet htbind "HT request bind & validate"
+	req := Get${1:action}Request{}}
+	if err := c.Bind(&req); err != nil {
+		logger.Errorw("${2:functionName} ctx.Bind failed", "param", util.MarshalNoError(req), "err", err)
+		return util.WebErrorResponse(c, constant.BadRequestParamErrorCode, "参数错误！")
+	}
+	if err := c.Validate(req); err != nil {
+		logger.Errorw("${2:functionName} validate failed", "param", util.MarshalNoError(req), "err", err)
+		return util.WebErrorResponse(c, constant.BadRequestParamErrorCode, "参数错误")
+	}
+
+snippet htspan "HT define span"
+	ctx, span := tracing.Start(c.Request().Context(), "$1{functionName}")
+	defer span.End()
+	log := logger.With("trace_id", tracing.TraceID(ctx))
+
+snippet htcurdmd "HT Get MysqlCURD Model"
+	${1}Model := model.GetMysqlBaseCurdModel[${2:resultModel}](${3:db}, ${4:tableName})
+
+	dB := ${1}Model.GetDB()
+
+	if req.${6} > 0 {
+		dB = dB.Where("${5} = ?", req.${6})
+	}
