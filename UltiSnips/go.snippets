@@ -1,5 +1,5 @@
 snippet htbind "HT request bind & validate"
-	req := Get${1:action}Request{}}
+	req := Get${1:action}Request{}
 	if err := c.Bind(&req); err != nil {
 		logger.Errorw("${2:functionName} ctx.Bind failed", "param", util.MarshalNoError(req), "err", err)
 		return util.WebErrorResponse(c, constant.BadRequestParamErrorCode, "参数错误！")
@@ -9,16 +9,50 @@ snippet htbind "HT request bind & validate"
 		return util.WebErrorResponse(c, constant.BadRequestParamErrorCode, "参数错误")
 	}
 
+	${0}
+
 snippet htspan "HT define span"
-	ctx, span := tracing.Start(c.Request().Context(), "$1{functionName}")
+	ctx, span := tracing.Start(c.Request().Context(), "${1:functionName}")
 	defer span.End()
 	log := logger.With("trace_id", tracing.TraceID(ctx))
+
+	${0}
 
 snippet htcurdmd "HT Get MysqlCURD Model"
 	${1}Model := model.GetMysqlBaseCurdModel[${2:resultModel}](${3:db}, ${4:tableName})
 
-	dB := ${1}Model.GetDB()
+	dB := ${1}.GetDB()
 
 	if req.${6} > 0 {
 		dB = dB.Where("${5} = ?", req.${6})
+	}
+
+	db = db.Scopes(model.Paginate(req.Page, req.PageSize)).Order("id desc")
+
+	${1}, total, err := ${1}Model.QueryListByParam(ctx, db)
+	if err != nil {
+		log.Errorw("get err", "err", err)
+		return util.WebErrorResponse(c, constant.DBErrorCode, err.Error())
+	}
+
+	${0}
+
+snippet htcpn "HT auto complete name"
+	if err := util.AutofillUsername(items, ${0:cmsdb}); err != nil {
+		log.Errorw("查询错误", "err", err)
+		return util.WebErrorResponse(c, constant.DBErrorCode, err.Error())
+	}
+
+snippet htcm "HT create db model"
+	package ${3}
+
+	const TableName${2} = "${1}"
+
+	type ${4} struct {
+		${0}
+	}
+
+	// TableName LiveFanGroupLevel's table name
+	func (*${4}) TableName() string {
+		return ${2}
 	}

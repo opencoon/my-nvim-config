@@ -6,8 +6,8 @@ require("telescope").load_extension "fzy_native"
 
 -- see https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/pickers/layout_strategies.lua
 nnoremap { "<leader>t", "<cmd>Telescope<cr>" }
-nnoremap { "<leader><leader>", "<cmd>lua require('telescope.builtin').find_files()<cr>" }
-nnoremap { "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<cr>" }
+nnoremap { "<leader>g", "<cmd>lua require('telescope.builtin').find_files()<cr>" }
+nnoremap { "<leader><leader>", "<cmd>lua require('telescope.builtin').live_grep()<cr>" }
 nnoremap { "<leader>m", "<cmd>lua require('telescope.builtin').marks()<cr>" }
 nnoremap { "<leader>d", "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<cr>" }
 

@@ -47,5 +47,5 @@ map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 map("n", "<A-O>", "<CMD>lua __fterm_gitui()<CR>", opts)
 map("t", "<A-O>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)
 
-map("n", "<A-I>", "<CMD>lua __fterm_termp()<CR>", opts)
-map("t", "<A-I>", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)
+map("n", "<A-g>", "<CMD>lua __fterm_termp()<CR>", opts)
+map("t", "<A-g>", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)
