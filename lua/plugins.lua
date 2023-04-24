@@ -583,7 +583,8 @@ require("lazy").setup({
 				},
 			}
 
-			vim.cmd [[ silent! colorscheme nordfox ]]
+			-- vim.cmd [[ silent! colorscheme nordfox ]]
+			vim.cmd [[ silent! colorscheme edge ]]
 		end,
 	},
 	-- " one dark like colorscheme
