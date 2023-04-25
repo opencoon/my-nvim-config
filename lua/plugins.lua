@@ -566,31 +566,43 @@ require("lazy").setup({
 	-- colorscheme
 
 	-- https://github.com/EdenEast/nightfox.nvim
-	{
-		"EdenEast/nightfox.nvim",
-		config = function()
-			local nightfox = require "nightfox"
-			-- This function set the configuration of nightfox. If a value is not passed in the setup function
-			-- it will be taken from the default configuration above
-			-- https://github.com/EdenEast/nightfox.nvim
-			nightfox.setup {
-				options = {
-					styles = {
-						comments = "italic", -- change style of comments to be italic
-						-- keywords = "bold", -- change style of keywords to be bold
-						-- functions = "italic,bold", -- styles can be a comma separated list
-					},
-				},
-			}
-
-			-- vim.cmd [[ silent! colorscheme nordfox ]]
-			vim.cmd [[ silent! colorscheme edge ]]
-		end,
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	config = function()
+	-- 		local nightfox = require "nightfox"
+	-- 		-- This function set the configuration of nightfox. If a value is not passed in the setup function
+	-- 		-- it will be taken from the default configuration above
+	-- 		-- https://github.com/EdenEast/nightfox.nvim
+	-- 		nightfox.setup {
+	-- 			options = {
+	-- 				styles = {
+	-- 					comments = "italic", -- change style of comments to be italic
+	-- 					-- keywords = "bold", -- change style of keywords to be bold
+	-- 					-- functions = "italic,bold", -- styles can be a comma separated list
+	-- 				},
+	-- 			},
+	-- 		}
+	--
+	-- 		-- vim.cmd [[ silent! colorscheme nordfox ]]
+	-- 		vim.cmd [[ silent! colorscheme edge ]]
+	-- 	end,
+	-- },
 	-- " one dark like colorscheme
 	"sainnhe/edge",
 
-	-- " https://github.com/morhetz/gruvbox/wiki/Installation
+	{
+		"navarasu/onedark.nvim",
+		config = function()
+			require('onedark').setup {
+				-- style = 'darker'
+				-- style = 'dark'
+			}
+			require('onedark').load()
+		end,
+	}
+
+	-- 		vim.cmd [[ silent! colorscheme edge ]]
+		-- " https://github.com/morhetz/gruvbox/wiki/Installation
 	-- use "doums/darcula"
 	-- use "ttys3/base16-vim"
 

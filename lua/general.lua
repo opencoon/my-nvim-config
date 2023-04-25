@@ -49,7 +49,7 @@ Option.g {
 	-- for simnalamburt/vim-mundo
 	-- enable persistent undo so that undo history persists across vim sessions
 	undofile = true,
-	cmdheight = 2,
+	cmdheight = 1,
 	laststatus = 2,
 	--  -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline
 	showmode = false,
