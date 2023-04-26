@@ -92,8 +92,8 @@ require("lazy").setup({
 				custom_dynamic_variables = {},
 				yank_dry_run = true,
 			})
-			nnoremap { "<leader>ap", ":lua require('rest-nvim').run()<cr>" }
-			vnoremap { "<leader>ap", ":lua require('rest-nvim').run()<cr>" }
+			nnoremap { "<leader>re", ":lua require('rest-nvim').run()<cr>" }
+			vnoremap { "<leader>re", ":lua require('rest-nvim').run()<cr>" }
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" }
 	},
