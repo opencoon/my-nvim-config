@@ -8,7 +8,7 @@ nnoremap { "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", silent = true }
 nnoremap { "<2-LeftMouse>", "<Cmd>lua vim.lsp.buf.definition()<CR>", silent = true }
 nnoremap { "<C-RightMouse>", "<C-O>", silent = true }
 nnoremap { "<LeftMouse><RightMouse>", "<C-O>", silent = true }
-nnoremap { "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", silent = true }
+nnoremap { "<C-j>", "<Cmd>lua vim.lsp.buf.hover()<CR>", silent = true }
 nnoremap { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent = true }
 nnoremap { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", silent = true }
 nnoremap { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", silent = true }
@@ -16,7 +16,7 @@ nnoremap { "<Leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", sile
 nnoremap { "<Leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", silent = true }
 nnoremap { "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", silent = true }
 nnoremap { "<Leader>id", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent = true }
-nnoremap { "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", silent = true }
+-- nnoremap { "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", silent = true }
 -- lspsaga currently can not popup with current name of the symbol in the popup
 -- https://github.com/glepnir/lspsaga.nvim/issues/186
 -- nnoremap <silent> <F2> <cmd>lua require('lspsaga.rename').rename()<CR>

@@ -1,4 +1,4 @@
-map { "<F4>", ":NvimTreeToggle<CR>" }
+-- map { "<F4>", ":NvimTreeToggle<CR>" }
 nnoremap { "<leader>f", ":NvimTreeToggle<CR>" }
 nnoremap { "<leader>ff", ":NvimTreeFindFile<CR>" }
 nnoremap { "<leader>fc", ":NvimTreeFocus<CR>" }

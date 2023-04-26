@@ -482,11 +482,10 @@ require("lazy").setup({
 		"sindrets/diffview.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			nnoremap { "<leader>dvv", ":DiffviewOpen<cr>" }
-			nnoremap { "<leader>dvx", ":DiffviewClose<cr>" }
-			nnoremap { "<leader>dvh", ":DiffviewFileHistory<cr>" }
-			nnoremap { "<leader>dvh", ":DiffviewFileHistory<cr>" }
-			nnoremap { "<leader>dvc", ":DiffviewFileHistory %<cr>" }
+			nnoremap { "<F2>", ":DiffviewOpen<cr>" }
+			nnoremap { "<leader>dc", ":DiffviewClose<cr>" }
+			nnoremap { "<F4>", ":DiffviewFileHistory<cr>" }
+			nnoremap { "<F3>", ":DiffviewFileHistory %<cr>" }
 		end
 	},
 

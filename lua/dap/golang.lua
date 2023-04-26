@@ -38,8 +38,8 @@ function M.init(dap)
 	-- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
 	local utils = require("dap.utils")
 	local projectConfigPath = {
-		cms = './config/nacos-test/test/cms/cms-api.toml',
-		configCenter = './config/nacos-test/test/im/config-center.toml'
+		cms = '/config/nacos-test/test/cms/cms-api.toml',
+		configCenter = '/config/nacos-test/test/im/config-center.toml'
 	}
 	-- 创建命令
 	dap.configurations.go = {
@@ -65,11 +65,11 @@ function M.init(dap)
 
 					-- 检查用户输入是否为 'cms-api'
 					if result == 'cms-api' then
-						dap.configurations.go[1].args = {'--config', projectConfigPath.cms}
+						dap.configurations.go[1].args = {'--config', '${env:PWD}' .. projectConfigPath.cms}
 					end
 					-- 检查用户输入是否为 'config-center'
 					if result == 'config-center' then
-						dap.configurations.go[1].args = {'--config', projectConfigPath.configCenter}
+						dap.configurations.go[1].args = {'--config', '${env:PWD}' .. projectConfigPath.configCenter}
 					end
 
 					local message = 'Go program arguments: ' .. vim.inspect(dap.configurations.go[1].args)
