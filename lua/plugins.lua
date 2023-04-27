@@ -29,6 +29,14 @@ require("lazy").setup({
 
 	"fladson/vim-kitty",
 
+	"stevearc/dressing.nvim",
+	{
+		"weilbith/nvim-code-action-menu",
+		config = function()
+			vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { silent = true })
+		end
+	},
+
 	-- alternatives: https://github.com/nvim-neo-tree/neo-tree.nvim
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -167,13 +175,13 @@ require("lazy").setup({
 		end,
 	},
 
-	{
-		"smjonas/inc-rename.nvim",
-		config = function()
-			require("inc_rename").setup()
-			vim.keymap.set("n", "<leader>r", ":IncRename ")
-		end,
-	},
+	-- {
+	-- 	"smjonas/inc-rename.nvim",
+	-- 	config = function()
+	-- 		require("inc_rename").setup()
+	-- 		vim.keymap.set("n", "<leader>r", ":IncRename ")
+	-- 	end,
+	-- },
 
 	-- local-highlight.nvim: blazing fast highlight of word under the cursor
 	-- see https://www.reddit.com/r/neovim/comments/10xf7s0/comment/j7tjqgm/?utm_source=reddit&utm_medium=web2x&context=3

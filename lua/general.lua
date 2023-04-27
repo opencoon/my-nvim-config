@@ -259,6 +259,7 @@ noremap { "<leader>7", "7gt", silent = true }
 noremap { "<leader>8", "8gt", silent = true }
 noremap { "<leader>9", "9gt", silent = true }
 noremap { "<leader>0", ":tabo<CR>", silent = true }
+noremap { "g0", ":only<CR>", silent = true }
 
 --   " smash escape
 --   inoremap jk <esc>

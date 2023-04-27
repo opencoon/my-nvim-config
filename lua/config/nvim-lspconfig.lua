@@ -16,7 +16,7 @@ nnoremap { "<Leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", sile
 nnoremap { "<Leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", silent = true }
 nnoremap { "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", silent = true }
 nnoremap { "<Leader>id", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent = true }
--- nnoremap { "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", silent = true }
+nnoremap { "<Leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", silent = true }
 -- lspsaga currently can not popup with current name of the symbol in the popup
 -- https://github.com/glepnir/lspsaga.nvim/issues/186
 -- nnoremap <silent> <F2> <cmd>lua require('lspsaga.rename').rename()<CR>
@@ -49,16 +49,16 @@ nnoremap {
 	silent = true,
 }
 
-nnoremap { "g0", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", silent = true }
-nnoremap { "gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", silent = true }
+nnoremap { "<leader>ds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", silent = true }
+nnoremap { "<leader>ws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", silent = true }
 
 -- ga has been mapped to vim-easy-align
 -- commentary took gc and gcc, so ...
 -- lsp builtin code_action
-nnoremap { "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent = true }
-nnoremap { "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent = true }
-vnoremap { "ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent = true }
-vnoremap { "<leader>a", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent = true }
+-- nnoremap { "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent = true }
+-- nnoremap { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent = true }
+-- vnoremap { "ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent = true }
+-- vnoremap { "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent = true }
 
 -- lspsaga code action
 -- nnoremap { "ca", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", silent = true }
@@ -69,12 +69,12 @@ vnoremap { "<leader>a", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", sil
 -- https://github.com/neovim/neovim/pull/16057
 -- https://www.reddit.com/r/neovim/comments/qd3v4h/psa_vimdiagnostics_api_has_changed_a_little_bit/hhl1pbh/
 -- nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>
-nnoremap { "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", silent = true }
-nnoremap { "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", silent = true }
+nnoremap { "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", silent = true }
+nnoremap { "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", silent = true }
 
 -- lspsaga
 -- lsp provider to find the cursor word definition and reference
-nnoremap { "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", silent = true }
+-- nnoremap { "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", silent = true }
 
 require "lsp.nomadls"
 
