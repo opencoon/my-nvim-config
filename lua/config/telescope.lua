@@ -9,6 +9,10 @@ nnoremap { "<leader>t", "<cmd>Telescope<cr>" }
 nnoremap { "<leader>g", "<cmd>lua require('telescope.builtin').find_files()<cr>" }
 nnoremap { "<leader><leader>", "<cmd>lua require('telescope.builtin').live_grep()<cr>" }
 nnoremap { "<leader>m", "<cmd>lua require('telescope.builtin').marks()<cr>" }
+nnoremap { "<leader>gi", "<cmd>lua require('telescope.builtin').git_status()<cr>" }
+nnoremap { "<leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<cr>" }
+nnoremap { "<leader>gs", "<cmd>lua require('telescope.builtin').git_stash()<cr>" }
+nnoremap { "<leader>cc", "<cmd>lua require('telescope.builtin').keymaps()<cr>" }
 nnoremap { "<leader>d", "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<cr>" }
 
 -- internal.buffers
@@ -17,7 +21,7 @@ nnoremap {
 	"<leader>b",
 	"<cmd>lua require('telescope.builtin').buffers({ignore_current_buffer = true, sort_mru = true, layout_strategy='vertical',layout_config={width=80}})<cr>",
 }
-nnoremap { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>" }
+nnoremap { "<leader>h", "<cmd>lua require('telescope.builtin').help_tags()<cr>" }
 
 local actions = require "telescope.actions"
 -- Global remapping

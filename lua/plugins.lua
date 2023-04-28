@@ -189,7 +189,7 @@ require("lazy").setup({
 		"tzachar/local-highlight.nvim",
 		config = function()
 			require("local-highlight").setup {
-				file_types = { "c", "rust", "go", "html", "javascript", "java", "swift", "lua", "python", "cpp" },
+				file_types = { "c", "rust", "go", "html", "javascript", "java", "swift", "lua", "python", "cpp", "typescript" },
 				hlgroup = "TSDefinitionUsage",
 			}
 		end,
@@ -228,12 +228,12 @@ require("lazy").setup({
 	-- https://github.com/arrufat/vala.vim
 	-- Automatic detection of .vala, .vapi and .valadoc files
 	-- https://wiki.gnome.org/action/show/Projects/Vala/Tools/Vim?action=show
-	{
-		"arrufat/vala.vim",
-		config = function()
-			require "config.vala"
-		end,
-	},
+	-- {
+	-- 	"arrufat/vala.vim",
+	-- 	config = function()
+	-- 		require "config.vala"
+	-- 	end,
+	-- },
 
 	-- edting
 
@@ -482,6 +482,8 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require "config.gitsigns"
+			nnoremap { "<leader>gn", ":Gitsigns next_hunk<cr>" }
+			nnoremap { "<leader>gp", ":Gitsigns prev_hunk<cr>" }
 		end,
 	},
 
