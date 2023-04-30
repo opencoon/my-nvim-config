@@ -344,7 +344,6 @@ require("lazy").setup({
 	-- https://github.com/nvim-lua/wishlist/issues/21#issuecomment-1364100079
 	-- https://github.com/debugloop/telescope-undo.nvim
 	"kevinhwang91/nvim-bqf",
-
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
