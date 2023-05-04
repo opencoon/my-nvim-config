@@ -64,12 +64,12 @@ function M.init(dap)
 					dap.configurations.go[1].args = args
 
 					-- 检查用户输入是否为 'cms-api'
-					if result == 'cms-api' then
-						dap.configurations.go[1].args = {'--config', '${env:PWD}' .. projectConfigPath.cms}
+					if result == 'cms-api' or result == '1' then
+						dap.configurations.go[1].args = {'--config', '${env:CMS_API}' .. projectConfigPath.cms}
 					end
 					-- 检查用户输入是否为 'config-center'
-					if result == 'config-center' then
-						dap.configurations.go[1].args = {'--config', '${env:PWD}' .. projectConfigPath.configCenter}
+					if result == 'config-center' or result == '2' then
+						dap.configurations.go[1].args = {'--config', '${env:CONFIT_CENTER}' .. projectConfigPath.configCenter}
 					end
 
 					local message = 'Go program arguments: ' .. vim.inspect(dap.configurations.go[1].args)

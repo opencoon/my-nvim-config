@@ -1,7 +1,7 @@
 -- map { "<F4>", ":NvimTreeToggle<CR>" }
 nnoremap { "<leader>f", ":NvimTreeToggle<CR>" }
 nnoremap { "<leader>ff", ":NvimTreeFindFile<CR>" }
-nnoremap { "<leader>fc", ":NvimTreeFocus<CR>" }
+-- nnoremap { "<leader>fc", ":NvimTreeFocus<CR>" }
 
 -- NvimTreeOpen and NvimTreeClose are also available if you need them
 -- a list of groups can be found at `:help nvim_tree_highlight`

@@ -239,8 +239,8 @@ vmap { "<leader>s", ":sort<cr>" }
 
 --   " remap arrow keys
 --   " tab shortcuts
-map { "<leader>tn", ":tabnew<CR>" }
-map { "<leader>tc", ":tabclose<CR>" }
+map { "<leader>fn", ":tabnew<CR>" }
+map { "<leader>fc", ":tabclose<CR>" }
 
 --   " quick switch buf
 nnoremap { "<up>", ":bprev<CR>" }

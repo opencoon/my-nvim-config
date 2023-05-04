@@ -1,0 +1,14 @@
+snippet htget "HT Get Request"
+	GET http://localhost:8080/cms_api/${1}?page=1&pageSize=100&${2}=${3}
+	Authorization: Bearer ${4}
+	${0}
+
+snippet htpost "HT Post Request"
+	POST http://localhost:8080/cms_api/${1}
+	Authorization: Bearer ${2}
+	Content-Type: application/json
+
+	{
+		"${3}": "${4}",
+	}
+	${0}
