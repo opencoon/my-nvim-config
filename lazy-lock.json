@@ -50,6 +50,7 @@
   "pantran.nvim": { "branch": "main", "commit": "2e01081cc1912db1183744a87a376465dbb35152" },
   "plenary.nvim": { "branch": "master", "commit": "9a0d3bf7b832818c042aaf30f692b081ddd58bd9" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
+  "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "rest.nvim": { "branch": "main", "commit": "0fdb69f328529b34a2279c14be63b3325dc52740" },
   "ron.vim": { "branch": "master", "commit": "f749e543975a82e8dd9a6e7df9600a1c098ae800" },
   "rust-tools.nvim": { "branch": "master", "commit": "bd1aa99ffb911a1cf99b3fcf3b44c0391c57e3ef" },

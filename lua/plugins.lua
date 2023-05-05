@@ -66,6 +66,13 @@ require("lazy").setup({
 	},
 
 	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup {
+			}
+		end
+	},
+	{
 		"nvim-pack/nvim-spectre",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
@@ -472,7 +479,7 @@ require("lazy").setup({
 	-- " ]p pastes on the line below, [p pastes on the line above
 	-- https://www.reddit.com/r/neovim/comments/118511i/minibracketed_go_forwardbackward_with_square/
 	-- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bracketed.md
-	{ "echasnovski/mini.bracketed"},
+	{ "echasnovski/mini.bracketed" },
 
 	-- https://github.com/b3nj5m1n/kommentary
 	-- https://github.com/numToStr/Comment.nvim
