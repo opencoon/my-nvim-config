@@ -55,6 +55,26 @@ require("lazy").setup({
 			vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { silent = true })
 		end
 	},
+	{
+		'akinsho/bufferline.nvim',
+		version = "*",
+		dependencies = 'nvim-tree/nvim-web-devicons',
+		config = function()
+			require("bufferline").setup {
+				options = {
+					mode = "tabs",
+					offsets = {
+						{
+							filetype = "NvimTree",
+							text = "File Explorer",
+							text_align = "left",
+							separator = true
+						}
+					},
+				}
+			}
+		end
+	},
 
 	-- alternatives: https://github.com/nvim-neo-tree/neo-tree.nvim
 	{
