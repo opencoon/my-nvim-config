@@ -18,9 +18,9 @@ local bootstrap = function()
 	end
 	vim.opt.rtp:prepend(lazypath)
 	vim.g.lazy_disable = {
-		"nvim-treesitter/nvim-treesitter",
-		"lewis6991/gitsigns.nvim",
-		"folke/todo-comments.nvim"
+		-- "nvim-treesitter/nvim-treesitter",
+		-- "lewis6991/gitsigns.nvim",
+		-- "folke/todo-comments.nvim"
 	}
 end
 

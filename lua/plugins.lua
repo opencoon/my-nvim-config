@@ -28,8 +28,27 @@ require("lazy").setup({
 	"IndianBoy42/tree-sitter-just",
 
 	"fladson/vim-kitty",
-
 	"stevearc/dressing.nvim",
+	{
+		"ThePrimeagen/harpoon",
+		config = function()
+			require("harpoon").setup()
+			vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>lua require('harpoon.mark').add_file()<CR>", { silent = false })
+			vim.api.nvim_set_keymap("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { silent = false })
+			vim.api.nvim_set_keymap("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { silent = false })
+			vim.api.nvim_set_keymap("n", "<leader>hv", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
+				{ silent = false })
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" }
+	},
+	{
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+		config = function()
+			require("mason").setup()
+		end
+	},
+	"potamides/pantran.nvim",
 	{
 		"weilbith/nvim-code-action-menu",
 		config = function()
@@ -55,7 +74,8 @@ require("lazy").setup({
 			vim.api.nvim_set_keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", { silent = true })
 			vim.api.nvim_set_keymap("n", "<leader>sc", "<cmd>lua require('spectre').close()<CR>", { silent = true })
 			-- search current word
-			vim.api.nvim_set_keymap("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", { silent = true })
+			vim.api.nvim_set_keymap("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>",
+				{ silent = true })
 			vim.api.nvim_set_keymap("v", "<leader>S", "<esc>:lua require('spectre').open_visual()<CR> ", { silent = true })
 
 			-- search in current file
@@ -90,7 +110,7 @@ require("lazy").setup({
 					formatters = {
 						json = "jq",
 						html = function(body)
-							return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
+							return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
 						end
 					},
 				},
@@ -118,8 +138,8 @@ require("lazy").setup({
 	{
 		"voldikss/vim-translate-me",
 		config = function()
-			vmap {"<Leader>fy",":Translate<Enter>"}
-			nmap {"<Leader>fy",":Translate<Enter>"}
+			vmap { "<Leader>fy", ":Translate<Enter>" }
+			nmap { "<Leader>fy", ":Translate<Enter>" }
 		end
 	},
 
@@ -225,12 +245,12 @@ require("lazy").setup({
 	},
 	{
 		"rcarriga/nvim-dap-ui",
-		dependencies = {"mfussenegger/nvim-dap"},
+		dependencies = { "mfussenegger/nvim-dap" },
 		config = function()
-			require("dapui").setup{
+			require("dapui").setup {
 			}
 		end,
-  },
+	},
 	-- vala
 	-- https://github.com/arrufat/vala.vim
 	-- Automatic detection of .vala, .vapi and .valadoc files
@@ -252,7 +272,7 @@ require("lazy").setup({
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
 			local config_path = vim.fn.stdpath('config')
-			require("luasnip.loaders.from_snipmate").lazy_load({ paths = {config_path .. "/UltiSnips"}})
+			require("luasnip.loaders.from_snipmate").lazy_load({ paths = { config_path .. "/UltiSnips" } })
 		end,
 	},
 	"saadparwaiz1/cmp_luasnip",
@@ -449,7 +469,7 @@ require("lazy").setup({
 	-- " ]p pastes on the line below, [p pastes on the line above
 	-- https://www.reddit.com/r/neovim/comments/118511i/minibracketed_go_forwardbackward_with_square/
 	-- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bracketed.md
-	{ "echasnovski/mini.bracketed", version = false },
+	{ "echasnovski/mini.bracketed"},
 
 	-- https://github.com/b3nj5m1n/kommentary
 	-- https://github.com/numToStr/Comment.nvim
@@ -617,7 +637,7 @@ require("lazy").setup({
 	}
 
 	-- 		vim.cmd [[ silent! colorscheme edge ]]
-		-- " https://github.com/morhetz/gruvbox/wiki/Installation
+	-- " https://github.com/morhetz/gruvbox/wiki/Installation
 	-- use "doums/darcula"
 	-- use "ttys3/base16-vim"
 
