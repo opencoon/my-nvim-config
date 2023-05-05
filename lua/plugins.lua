@@ -12,7 +12,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		-- branch = "0.5-compat",
-		-- build = ":TSUpdate",
+		build = ":TSUpdate",
 		config = function()
 			require "config.nvim-treesitter"
 		end,
@@ -153,6 +153,9 @@ require("lazy").setup({
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
 			}
+			nnoremap { "<leader>tn", ":lua require('todo-comments').jump_next()<cr>" }
+			nnoremap { "<leader>tp", ":lua require('todo-comments').jump_prev()<cr>" }
+			nnoremap { "<leader>tt", ":TodoTelescope<cr>" }
 		end,
 	},
 
