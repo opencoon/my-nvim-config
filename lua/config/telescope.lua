@@ -9,7 +9,7 @@ nnoremap { "<leader>t", "<cmd>Telescope<cr>" }
 nnoremap { "<leader>g", "<cmd>lua require('telescope.builtin').find_files()<cr>" }
 nnoremap { "<leader><leader>", "<cmd>lua require('telescope.builtin').live_grep()<cr>" }
 nnoremap { "<leader>m", "<cmd>lua require('telescope.builtin').marks()<cr>" }
-nnoremap { "<leader>gi", "<cmd>lua require('telescope.builtin').git_status()<cr>" }
+nnoremap { "<leader>gg", "<cmd>lua require('telescope.builtin').git_status()<cr>" }
 nnoremap { "<leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<cr>" }
 nnoremap { "<leader>gs", "<cmd>lua require('telescope.builtin').git_stash()<cr>" }
 nnoremap { "<leader>cc", "<cmd>lua require('telescope.builtin').keymaps()<cr>" }
