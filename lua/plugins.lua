@@ -27,7 +27,6 @@ require("lazy").setup({
 	-- Tree-sitter grammar for Justfiles (https://github.com/casey/just)
 	"IndianBoy42/tree-sitter-just",
 
-	"fladson/vim-kitty",
 	"stevearc/dressing.nvim",
 	{
 		"ThePrimeagen/harpoon",
@@ -48,7 +47,6 @@ require("lazy").setup({
 			require("mason").setup()
 		end
 	},
-	"potamides/pantran.nvim",
 	{
 		"weilbith/nvim-code-action-menu",
 		config = function()
@@ -101,7 +99,7 @@ require("lazy").setup({
 			vim.api.nvim_set_keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", { silent = true })
 			vim.api.nvim_set_keymap("n", "<leader>sc", "<cmd>lua require('spectre').close()<CR>", { silent = true })
 			-- search current word
-			vim.api.nvim_set_keymap("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>",
+			vim.api.nvim_set_keymap("n", "<leader>sn", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>",
 				{ silent = true })
 			vim.api.nvim_set_keymap("v", "<leader>S", "<esc>:lua require('spectre').open_visual()<CR> ", { silent = true })
 
