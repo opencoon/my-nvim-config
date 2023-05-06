@@ -32,10 +32,10 @@ require("lazy").setup({
 		"ThePrimeagen/harpoon",
 		config = function()
 			require("harpoon").setup()
-			vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>lua require('harpoon.mark').add_file()<CR>", { silent = false })
+			vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>lua require('harpoon.mark').add_file()<CR>", { silent = false })
 			vim.api.nvim_set_keymap("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", { silent = false })
 			vim.api.nvim_set_keymap("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", { silent = false })
-			vim.api.nvim_set_keymap("n", "<leader>hv", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
+			vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
 				{ silent = false })
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" }
@@ -50,7 +50,7 @@ require("lazy").setup({
 	{
 		"weilbith/nvim-code-action-menu",
 		config = function()
-			vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { silent = true })
+			-- vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { silent = true })
 		end
 	},
 	{
@@ -178,8 +178,8 @@ require("lazy").setup({
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
 			}
-			nnoremap { "<leader>tn", ":lua require('todo-comments').jump_next()<cr>" }
-			nnoremap { "<leader>tp", ":lua require('todo-comments').jump_prev()<cr>" }
+			nnoremap { "tn", ":lua require('todo-comments').jump_next()<cr>" }
+			nnoremap { "tp", ":lua require('todo-comments').jump_prev()<cr>" }
 			nnoremap { "<leader>tt", ":TodoTelescope<cr>" }
 		end,
 	},
@@ -536,8 +536,8 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require "config.gitsigns"
-			nnoremap { "<leader>gn", ":Gitsigns next_hunk<cr>" }
-			nnoremap { "<leader>gp", ":Gitsigns prev_hunk<cr>" }
+			nnoremap { "gn", ":Gitsigns next_hunk<cr>" }
+			nnoremap { "gp", ":Gitsigns prev_hunk<cr>" }
 		end,
 	},
 

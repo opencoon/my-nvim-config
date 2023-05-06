@@ -8,12 +8,12 @@ require("telescope").load_extension "fzy_native"
 nnoremap { "<leader>t", "<cmd>Telescope<cr>" }
 nnoremap { "<leader>g", "<cmd>lua require('telescope.builtin').find_files()<cr>" }
 nnoremap { "<leader><leader>", "<cmd>lua require('telescope.builtin').live_grep()<cr>" }
-nnoremap { "<leader>m", "<cmd>lua require('telescope.builtin').marks()<cr>" }
+nnoremap { "<leader>mm", "<cmd>lua require('telescope.builtin').marks()<cr>" }
 nnoremap { "<leader>gg", "<cmd>lua require('telescope.builtin').git_status()<cr>" }
 nnoremap { "<leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<cr>" }
 nnoremap { "<leader>gs", "<cmd>lua require('telescope.builtin').git_stash()<cr>" }
 nnoremap { "<leader>cc", "<cmd>lua require('telescope.builtin').keymaps()<cr>" }
-nnoremap { "<leader>d", "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<cr>" }
+nnoremap { "<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0})<cr>" }
 nnoremap { "<leader>nn", "<cmd>Telescope notify<cr>" }
 -- internal.buffers
 -- https://github.com/nvim-telescope/telescope.nvim/blob/9cad3a4a5d0e36b07b25c4be1db1c1306fcec945/lua/telescope/builtin/internal.lua

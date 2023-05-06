@@ -56,9 +56,9 @@ nnoremap { "<leader>ws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", silent =
 -- commentary took gc and gcc, so ...
 -- lsp builtin code_action
 -- nnoremap { "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent = true }
--- nnoremap { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent = true }
+nnoremap { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent = true }
 -- vnoremap { "ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent = true }
--- vnoremap { "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent = true }
+vnoremap { "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent = true }
 
 -- lspsaga code action
 -- nnoremap { "ca", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", silent = true }
@@ -69,8 +69,8 @@ nnoremap { "<leader>ws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", silent =
 -- https://github.com/neovim/neovim/pull/16057
 -- https://www.reddit.com/r/neovim/comments/qd3v4h/psa_vimdiagnostics_api_has_changed_a_little_bit/hhl1pbh/
 -- nnoremap <leader>dn <cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>
-nnoremap { "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", silent = true }
-nnoremap { "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", silent = true }
+nnoremap { "dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", silent = true }
+nnoremap { "dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", silent = true }
 
 -- lspsaga
 -- lsp provider to find the cursor word definition and reference
