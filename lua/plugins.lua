@@ -159,7 +159,12 @@ require("lazy").setup({
 			vnoremap { "<leader>db", ":DBUI<cr>" }
 		end
 	},
-
+	{
+		"vim-test/vim-test",
+		config = function()
+			vim.g["test#go#gotest#options"] = "-v --count=1"
+		end
+	},
 	{
 		"voldikss/vim-translate-me",
 		config = function()
