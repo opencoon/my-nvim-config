@@ -21,10 +21,10 @@ snippet htspan "HT define span"
 snippet htcurdmd "HT Get MysqlCURD Model"
 	${1}Model := model.GetMysqlBaseCurdModel[${2:resultModel}](${3:db}, ${4:tableName})
 
-	dB := ${1}.GetDB()
+	db := ${1}.GetDB()
 
 	if req.${6} > 0 {
-		dB = dB.Where("${5} = ?", req.${6})
+		db = db.Where("${5} = ?", req.${6})
 	}
 
 	db = db.Scopes(model.Paginate(req.Page, req.PageSize)).Order("id desc")
@@ -56,3 +56,12 @@ snippet htcm "HT create db model"
 	func (*${4}) TableName() string {
 		return ${2}
 	}
+
+snippet htcuby "HT created/updated by"
+	CreatedAt     string \`json:"created_at"\`
+	UpdatedAt     string \`json:"updated_at"\`
+	CreatedBy     uint   \`json:"created_by"\`
+	UpdatedBy     uint   \`json:"updated_by"\`
+	CreatedByName string \`json:"created_by_name"\`
+	UpdatedByName string \`json:"updated_by_name"\`
+

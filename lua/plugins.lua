@@ -71,6 +71,8 @@ require("lazy").setup({
 					},
 				}
 			}
+			vim.api.nvim_set_keymap("n", "<leader>bc", "<cmd>BufferLinePickClose<CR>", { silent = true })
+			vim.api.nvim_set_keymap("n", "<leader>bl", "<cmd>BufferLinePick<CR>", { silent = true })
 		end
 	},
 
@@ -163,6 +165,17 @@ require("lazy").setup({
 		"vim-test/vim-test",
 		config = function()
 			vim.g["test#go#gotest#options"] = "-v --count=1"
+			nnoremap { "<leader>tl", ":TestLast<cr>" }
+			nnoremap { "<leader>tf", ":TestFile<cr>" }
+			nnoremap { "<leader>tr", ":TestNearest<cr>" }
+		end
+	},
+	{
+		"sebdah/vim-delve",
+		config = function()
+			nnoremap { "<leader>tb", ":DlvToggleBreakpoint<cr>" }
+			nnoremap { "<leader>tc", ":DlvClearAll<cr>" }
+			nnoremap { "<leader>tv", ":DlvTest<cr>" }
 		end
 	},
 	{

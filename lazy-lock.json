@@ -62,6 +62,7 @@
   "vim-barbaric": { "branch": "master", "commit": "bb4bef87417fc3ad92319f556f02d6658b401288" },
   "vim-dadbod": { "branch": "master", "commit": "3f57c0cd41523423fd781422dfc833820095a3e8" },
   "vim-dadbod-ui": { "branch": "master", "commit": "986324fa6372170ec47b28a5558ae7f7185e1d71" },
+  "vim-delve": { "branch": "master", "commit": "41d6ad294fb6dd5090f5f938318fc4ed73b6e1ea" },
   "vim-easy-align": { "branch": "master", "commit": "12dd6316974f71ce333e360c0260b4e1f81169c3" },
   "vim-go-impl": { "branch": "master", "commit": "74988dc3958f68355b9d4a3ffaa97a74d0006248" },
   "vim-gomodifytags": { "branch": "master", "commit": "9217e72f69a2e0be4228dd1f94fd7c50302976a9" },
