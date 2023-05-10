@@ -12,7 +12,7 @@ local term = require "FTerm.terminal"
 
 -- Running gitui
 local gitui = term:new():setup {
-	cmd = "gitui",
+	cmd = "lazygit",
 	dimensions = {
 		height = 0.9,
 		width = 0.9,
@@ -42,10 +42,12 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map("n", "<leader>gi", '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+map("t", "<leader>gi", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
-map("n", "<A-O>", "<CMD>lua __fterm_gitui()<CR>", opts)
-map("t", "<A-O>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)
+map("n", "<A-u>", "<CMD>lua __fterm_gitui()<CR>", opts)
+map("t", "<A-u>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)
 
 map("n", "<A-g>", "<CMD>lua __fterm_termp()<CR>", opts)
 map("t", "<A-g>", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)
