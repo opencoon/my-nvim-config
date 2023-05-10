@@ -4,7 +4,7 @@ require "utils"
 
 -- nnoremap { '<leader>hello', function() print("Hello world, from lua") end }
 
-vim.cmd("silent! packadd lazy")
+-- vim.cmd("silent! packadd lazy")
 require("lazy").setup({
 	{
 		"folke/which-key.nvim",
