@@ -136,7 +136,7 @@ Option.g {
 	showmatch = true, --"automatically highlight matching braces/brackets/etc.
 	matchtime = 2,   --"tens of a second to show matching parentheses
 	number = true,
-	lazyredraw = true,
+	lazyredraw = false,
 	foldenable = true,    --"enable folds by default
 	foldmethod = "indent", --"do not use syntax as fdm due to performance issue
 	foldlevelstart = 99,  --"open all folds by default
