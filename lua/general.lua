@@ -77,40 +77,40 @@ Option.g {
 	background = "dark",
 
 	-- base configuration
-	timeoutlen = 300, --mapping timeout
-	ttimeoutlen = 50, --keycode timeout
+	timeoutlen = 300,                               --mapping timeout
+	ttimeoutlen = 50,                               --keycode timeout
 
-	mouse = "a", --"enable mouse
-	history = 1000, --number of command lines to remember
-	ttyfast = true, -- assume fast terminal connection
+	mouse = "a",                                    --"enable mouse
+	history = 1000,                                 --number of command lines to remember
+	ttyfast = true,                                 -- assume fast terminal connection
 	viewoptions = "folds,options,cursor,unix,slash", -- unix/windows compatibility
-	hidden = true, -- allow buffer switching without saving
-	autoread = true, -- auto reload if file saved externally
-	fileformats = "unix,dos,mac", -- add mac to auto-detection of file format line endings
+	hidden = true,                                  -- allow buffer switching without saving
+	autoread = true,                                -- auto reload if file saved externally
+	fileformats = "unix,dos,mac",                   -- add mac to auto-detection of file format line endings
 	-- nrformats = "bin,hex"
 	showcmd = true,
 	showfulltag = true,
 	modeline = true,
 	modelines = 5,
 
-	shelltemp = false, -- use pipes
+	shelltemp = false,             -- use pipes
 	-- whitespace
 	backspace = "indent,eol,start", --" allow backspacing everything in insert mode
-	autoindent = true, --          " automatically indent to match adjacent lines
-	expandtab = true, --" spaces instead of tabs
-	smarttab = true, --" use shiftwidth to enter tabs
-	tabstop = 4, --" number of spaces per tab for display
-	softtabstop = 4, --" number of spaces per tab in insert mode
-	shiftwidth = 4, --" number of spaces when indenting
+	autoindent = true,             --          " automatically indent to match adjacent lines
+	expandtab = true,              --" spaces instead of tabs
+	smarttab = true,               --" use shiftwidth to enter tabs
+	tabstop = 4,                   --" number of spaces per tab for display
+	softtabstop = 4,               --" number of spaces per tab in insert mode
+	shiftwidth = 4,                --" number of spaces when indenting
 	shiftround = true,
 	linebreak = true,
 	showbreak = "↪ ",
 	wrap = false,
 
-	scrolloff = 1, --always show content after scroll
-	scrolljump = 5, --minimum number of lines to scroll
+	scrolloff = 1,         --always show content after scroll
+	scrolljump = 5,        --minimum number of lines to scroll
 	display = "lastline,msgsep",
-	wildmenu = true, --show list for autocomplete
+	wildmenu = true,       --show list for autocomplete
 	wildmode = "list:full", -- Command-line completion mode
 	wildignorecase = true,
 
@@ -121,7 +121,7 @@ Option.g {
 	visualbell = false,
 
 	-- searching
-	hlsearch = true, --"highlight searches
+	hlsearch = true,  --"highlight searches
 	incsearch = true, --"incremental searching
 	ignorecase = true, --"ignore case for searching
 	smartcase = true, --"do case-sensitive if there's a capital letter
@@ -134,12 +134,12 @@ Option.g {
 
 	-- ui configuration
 	showmatch = true, --"automatically highlight matching braces/brackets/etc.
-	matchtime = 2, --"tens of a second to show matching parentheses
+	matchtime = 2,   --"tens of a second to show matching parentheses
 	number = true,
 	lazyredraw = true,
-	foldenable = true, --"enable folds by default
+	foldenable = true,    --"enable folds by default
 	foldmethod = "indent", --"do not use syntax as fdm due to performance issue
-	foldlevelstart = 99, --"open all folds by default
+	foldlevelstart = 99,  --"open all folds by default
 
 	textwidth = 160,
 	colorcolumn = "+1", --highlight column after 'textwidth'
@@ -182,6 +182,8 @@ Option.b {}
 
 -- nnoremap { '<leader>hello', function() print("Hello world, from lua") end }
 
+inoremap { "jj", "<Esc>" }
+inoremap { "kk", "<Esc>" }
 inoremap { "jk", "<Esc>" }
 inoremap { "kj", "<Esc>" }
 inoremap { "JK", "<Esc>" }
@@ -564,7 +566,7 @@ local ft_au_group = vim.api.nvim_create_augroup("FileTemplate", { clear = false 
 for _, tmpl in ipairs(template_files) do
 	local ext = vim.fn.fnamemodify(tmpl, ":e")
 
-vim.api.nvim_create_autocmd("BufNewFile", {
+	vim.api.nvim_create_autocmd("BufNewFile", {
 		group = ft_au_group,
 		pattern = { string.format("*.%s", ext) },
 		callback = function()

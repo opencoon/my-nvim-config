@@ -65,9 +65,15 @@ require("lazy").setup({
 						{
 							filetype = "NvimTree",
 							text = "File Explorer",
-							text_align = "left",
+							text_align = "center",
 							separator = true
-						}
+						}, {
+						filetype = "dbui",
+						text = "DB Explorer",
+						text_align = "center",
+						separator = true
+					}
+
 					},
 				}
 			}
