@@ -19,6 +19,20 @@ require("lazy").setup({
 		end
 	},
 	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			nnoremap { "<leader>f", ":NeoTreeFocusToggle<CR>", silent = true }
+			nnoremap { "<leader>fd", ":NeoTreeFocus<CR>", silent = true }
+			nnoremap { "<leader>ff", ":NeoTreeReveal<CR>", silent = true }
+		end
+	},
+	{
 		"folke/noice.nvim",
 		config = function()
 			require("noice").setup({
@@ -110,7 +124,7 @@ require("lazy").setup({
 					mode = "tabs",
 					offsets = {
 						{
-							filetype = "NvimTree",
+							filetype = "neo-tree",
 							text = "File Explorer",
 							text_align = "center",
 							separator = true
@@ -129,14 +143,14 @@ require("lazy").setup({
 		end
 	},
 
-	-- alternatives: https://github.com/nvim-neo-tree/neo-tree.nvim
-	{
-		"nvim-tree/nvim-tree.lua",
-		config = function()
-			require "config.nvim-tree"
-		end,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
+	-- -- alternatives: https://github.com/nvim-neo-tree/neo-tree.nvim
+	-- {
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	config = function()
+	-- 		require "config.nvim-tree"
+	-- 	end,
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- },
 
 	{
 		"ahmedkhalf/project.nvim",
