@@ -10,16 +10,16 @@ require("FTerm").setup {
 
 local term = require "FTerm.terminal"
 
--- Running gitui
-local gitui = term:new():setup {
+-- Running lazygit
+local lazygit = term:new():setup {
 	cmd = "lazygit",
 	dimensions = {
 		height = 0.9,
 		width = 0.9,
 	},
 }
-function _G.__fterm_gitui()
-	gitui:toggle()
+function _G.__fterm_lazygit()
+	lazygit:toggle()
 end
 
 local termp = term:new():setup {
@@ -46,8 +46,12 @@ map("n", "<leader>gi", '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 map("t", "<leader>gi", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
-map("n", "<A-u>", "<CMD>lua __fterm_gitui()<CR>", opts)
-map("t", "<A-u>", "<C-\\><C-n><CMD>lua __fterm_gitui()<CR>", opts)
+map("n", "<A-u>", "<CMD>lua __fterm_lazygit()<CR>", opts)
+map("n", "<leader>gu", "<CMD>lua __fterm_lazygit()<CR>", opts)
+map("t", "<A-u>", "<C-\\><C-n><CMD>lua __fterm_lazygit()<CR>", opts)
+map("t", "<leader>gu", "<C-\\><C-n><CMD>lua __fterm_lazygit()<CR>", opts)
 
 map("n", "<A-g>", "<CMD>lua __fterm_termp()<CR>", opts)
+map("n", "<leader>gg", "<CMD>lua __fterm_termp()<CR>", opts)
 map("t", "<A-g>", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)
+map("t", "<leader>gg", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)

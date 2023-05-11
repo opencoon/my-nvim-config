@@ -282,7 +282,7 @@ nnoremap { "/", "/\\v" }
 vnoremap { "/", "/\\v" }
 nnoremap { "?", "?\\v" }
 vnoremap { "?", "?\\v" }
-nnoremap { ":s/", ":s/\\v" }
+-- nnoremap { ":s/", ":s/\\v" }
 
 --   " command-line window
 nnoremap { "q:", "q:i" }

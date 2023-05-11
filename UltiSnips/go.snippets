@@ -65,3 +65,11 @@ snippet htcuby "HT created/updated by"
 	CreatedByName string \`json:"created_by_name"\`
 	UpdatedByName string \`json:"updated_by_name"\`
 
+snippet htgormdns "HT gorm dns"
+	mgDns := "${3}:${2}@tcp(${1}:3306)/HT_MGDB?charset=utf8mb4&parseTime=True&loc=Local"
+	mgDB, err := gorm.Open(mysql.Open(mgDns), &gorm.Config{})
+	if err != nil {
+		return nil, err
+	}
+	${0}
+

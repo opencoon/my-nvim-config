@@ -1,5 +1,5 @@
 -- map { "<F4>", ":NvimTreeToggle<CR>" }
-nnoremap { "<leader>f", ":NvimTreeToggle<CR>" }
+nnoremap { "<leader>f", ":NvimTreeToggle<CR>", silent = true }
 nnoremap { "<leader>ff", ":NvimTreeFindFile<CR>" }
 -- nnoremap { "<leader>fc", ":NvimTreeFocus<CR>" }
 
@@ -22,7 +22,7 @@ require("nvim-tree").setup {
 		width = 45, -- 30 by default
 	},
 	filters = {
-		dotfiles = false, -- hide dot files
+		dotfiles = false,                     -- hide dot files
 		custom = { ".git", ".cache", ".idea" }, -- custom hide
 	},
 	renderer = {
