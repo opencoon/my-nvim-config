@@ -17,6 +17,7 @@ nnoremap { "<Leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", s
 nnoremap { "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", silent = true }
 nnoremap { "<Leader>id", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent = true }
 nnoremap { "<Leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", silent = true }
+nnoremap { "<leader>lr", "<Cmd>LspRestart<CR>", silent = true }
 -- lspsaga currently can not popup with current name of the symbol in the popup
 -- https://github.com/glepnir/lspsaga.nvim/issues/186
 -- nnoremap <silent> <F2> <cmd>lua require('lspsaga.rename').rename()<CR>

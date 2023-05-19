@@ -4,7 +4,6 @@ require "utils"
 
 -- nnoremap { '<leader>hello', function() print("Hello world, from lua") end }
 
--- vim.cmd("silent! packadd lazy")
 require("lazy").setup({
 	{
 		"folke/which-key.nvim",
@@ -12,9 +11,6 @@ require("lazy").setup({
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 			require("which-key").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
 			}
 		end
 	},
@@ -33,40 +29,48 @@ require("lazy").setup({
 		end
 	},
 	{
-		"folke/noice.nvim",
+		"github/copilot.vim",
 		config = function()
-			require("noice").setup({
-				-- add any options here
-				lsp = {
-					signature = {
-						enabled = false
-					},
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-				},
-				-- you can enable a preset for easier configuration
-				presets = {
-					bottom_search = true,    -- use a classic bottom cmdline for search
-					command_palette = true,  -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = false,      -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = false,  -- add a border to hover docs and signature help
-				},
-			})
-		end,
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
-		}
+			vim.g.copilot_no_tab_map = true
+			vim.g.copilot_assume_mapped = true
+			vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+		end
 	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	config = function()
+	-- 		require("noice").setup({
+	-- 			-- add any options here
+	-- 			lsp = {
+	-- 				signature = {
+	-- 					enabled = false
+	-- 				},
+	-- 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+	-- 				override = {
+	-- 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+	-- 					["vim.lsp.util.stylize_markdown"] = true,
+	-- 					["cmp.entry.get_documentation"] = true,
+	-- 				},
+	-- 			},
+	-- 			-- you can enable a preset for easier configuration
+	-- 			presets = {
+	-- 				bottom_search = true,    -- use a classic bottom cmdline for search
+	-- 				command_palette = true,  -- position the cmdline and popupmenu together
+	-- 				long_message_to_split = true, -- long messages will be sent to a split
+	-- 				inc_rename = false,      -- enables an input dialog for inc-rename.nvim
+	-- 				lsp_doc_border = false,  -- add a border to hover docs and signature help
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- 	dependencies = {
+	-- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		-- OPTIONAL:
+	-- 		--   `nvim-notify` is only needed, if you want to use the notification view.
+	-- 		--   If not available, we use `mini` as the fallback
+	-- 		"rcarriga/nvim-notify",
+	-- 	}
+	-- },
 	-- treesitter = AST (syntax/parsing)
 	-- LSP = whole-project semantic analysis
 	-- https://github.com/nvim-treesitter/nvim-treesitter
@@ -83,10 +87,6 @@ require("lazy").setup({
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
-
-	-- https://github.com/IndianBoy42/tree-sitter-just
-	-- Tree-sitter grammar for Justfiles (https://github.com/casey/just)
-	"IndianBoy42/tree-sitter-just",
 
 	"stevearc/dressing.nvim",
 	{
@@ -106,12 +106,6 @@ require("lazy").setup({
 		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		config = function()
 			require("mason").setup()
-		end
-	},
-	{
-		"weilbith/nvim-code-action-menu",
-		config = function()
-			-- vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { silent = true })
 		end
 	},
 	{
@@ -142,15 +136,6 @@ require("lazy").setup({
 			vim.api.nvim_set_keymap("n", "<leader>bl", "<cmd>BufferLinePick<CR>", { silent = true })
 		end
 	},
-
-	-- -- alternatives: https://github.com/nvim-neo-tree/neo-tree.nvim
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	config = function()
-	-- 		require "config.nvim-tree"
-	-- 	end,
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- },
 
 	{
 		"ahmedkhalf/project.nvim",
@@ -292,12 +277,6 @@ require("lazy").setup({
 			require("neoscroll").setup()
 		end,
 	},
-
-	-- https://github.com/simrat39/rust-tools.nvim
-	{
-		"simrat39/rust-tools.nvim",
-	},
-
 	{
 		"rcarriga/nvim-notify",
 		config = function()
@@ -310,18 +289,10 @@ require("lazy").setup({
 		"neovim/nvim-lspconfig",
 		dependencies = { "simrat39/rust-tools.nvim" },
 		config = function()
-			require "config.rust-tools"
+			-- require "config.rust-tools"
 			require "config.nvim-lspconfig"
 		end,
 	},
-
-	-- {
-	-- 	"smjonas/inc-rename.nvim",
-	-- 	config = function()
-	-- 		require("inc_rename").setup()
-	-- 		vim.keymap.set("n", "<leader>r", ":IncRename ")
-	-- 	end,
-	-- },
 
 	-- local-highlight.nvim: blazing fast highlight of word under the cursor
 	-- see https://www.reddit.com/r/neovim/comments/10xf7s0/comment/j7tjqgm/?utm_source=reddit&utm_medium=web2x&context=3
@@ -351,12 +322,6 @@ require("lazy").setup({
 		end
 	},
 	{
-		"theHamsta/nvim-dap-virtual-text",
-		config = function()
-			require("nvim-dap-virtual-text").setup()
-		end
-	},
-	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap" },
 		config = function()
@@ -364,18 +329,6 @@ require("lazy").setup({
 			}
 		end,
 	},
-	-- vala
-	-- https://github.com/arrufat/vala.vim
-	-- Automatic detection of .vala, .vapi and .valadoc files
-	-- https://wiki.gnome.org/action/show/Projects/Vala/Tools/Vim?action=show
-	-- {
-	-- 	"arrufat/vala.vim",
-	-- 	config = function()
-	-- 		require "config.vala"
-	-- 	end,
-	-- },
-
-	-- edting
 
 	-- Snippet support
 	-- For luasnip user.
@@ -389,51 +342,10 @@ require("lazy").setup({
 		end,
 	},
 	"saadparwaiz1/cmp_luasnip",
-
-	-- https://github.com/Saecki/crates.nvim
-	-- also provide Completion source for nvim-cmp
-	-- {
-	-- 	"Saecki/crates.nvim",
-	-- 	-- lazy loading
-	-- 	event = { "BufRead Cargo.toml" },
-	-- 	dependencies = { { "nvim-lua/plenary.nvim" } },
-	-- 	config = function()
-	-- 		require("crates").setup()
-	--
-	-- 		-- mappings https://github.com/Saecki/crates.nvim#key-mappings
-	-- 		nnoremap { "<leader>vt", ":lua require('crates').toggle()<cr>" }
-	-- 		nnoremap { "<leader>vr", ":lua require('crates').reload()<cr>" }
-	-- 		nnoremap { "<leader>vu", ":lua require('crates').update_crate()<cr>" }
-	-- 		vnoremap { "<leader>vu", ":lua require('crates').update_crates()<cr>" }
-	-- 		nnoremap { "<leader>va", ":lua require('crates').update_all_crates()<cr>" }
-	-- 		nnoremap { "<leader>vU", ":lua require('crates').upgrade_crate()<cr>" }
-	-- 		vnoremap { "<leader>vU", ":lua require('crates').upgrade_crates()<cr>" }
-	-- 		nnoremap { "<leader>vA", ":lua require('crates').upgrade_all_crates()<cr>" }
-	-- 	end,
-	-- },
-
-	-- complete plugin
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
-
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	event = { "VimEnter" },
-	-- 	requires = "github/copilot.vim",
-	-- 	config = function()
-	-- 		vim.defer_fn(function()
-	-- 			require("copilot").setup()
-	-- 		end, 100)
-	-- 	end,
-	-- }
-
-	-- {
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	after = { "copilot.lua", "nvim-cmp" },
-	-- }
-
 	{
 		"tzachar/cmp-tabnine",
 		build = "./install.sh",
@@ -484,6 +396,7 @@ require("lazy").setup({
 	-- https://github.com/nvim-lua/wishlist/issues/21#issuecomment-1364100079
 	-- https://github.com/debugloop/telescope-undo.nvim
 	"kevinhwang91/nvim-bqf",
+
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -519,20 +432,6 @@ require("lazy").setup({
 			}
 		end,
 	},
-
-	-- " if no color: export TERM=xterm-256color
-	-- " show the final result: :echo &statusline
-	-- " https://emojipedia.org/hourglass-done/
-	-- " let g:lightline#ale#indicator_checking = "⌛ "
-	-- " https://emojipedia.org/cross-mark/
-	-- " let g:lightline#ale#indicator_errors = "❌ "
-	-- " https://emojipedia.org/warning/
-	-- " let g:lightline#ale#indicator_warnings = "⚠️  "
-	-- " https://emojipedia.org/information/
-	-- " let g:lightline#ale#indicator_infos = "ℹ️  "
-	-- " https://emojipedia.org/check-mark-button/
-	-- " let g:lightline#ale#indicator_ok = " ✅"
-
 	{
 		"windwp/windline.nvim",
 		config = function()
@@ -708,33 +607,6 @@ require("lazy").setup({
 	-- " https://github.com/ekickx/clipboard-image.nvim
 	"ekickx/clipboard-image.nvim",
 
-	-- https://jeffkreeftmeijer.com/vim-number/
-	-- use "jeffkreeftmeijer/vim-numbertoggle"
-
-	-- colorscheme
-
-	-- https://github.com/EdenEast/nightfox.nvim
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	config = function()
-	-- 		local nightfox = require "nightfox"
-	-- 		-- This function set the configuration of nightfox. If a value is not passed in the setup function
-	-- 		-- it will be taken from the default configuration above
-	-- 		-- https://github.com/EdenEast/nightfox.nvim
-	-- 		nightfox.setup {
-	-- 			options = {
-	-- 				styles = {
-	-- 					comments = "italic", -- change style of comments to be italic
-	-- 					-- keywords = "bold", -- change style of keywords to be bold
-	-- 					-- functions = "italic,bold", -- styles can be a comma separated list
-	-- 				},
-	-- 			},
-	-- 		}
-	--
-	-- 		-- vim.cmd [[ silent! colorscheme nordfox ]]
-	-- 		vim.cmd [[ silent! colorscheme edge ]]
-	-- 	end,
-	-- },
 	-- " one dark like colorscheme
 	"sainnhe/edge",
 
@@ -748,65 +620,6 @@ require("lazy").setup({
 			require('onedark').load()
 		end,
 	}
-
-	-- 		vim.cmd [[ silent! colorscheme edge ]]
-	-- " https://github.com/morhetz/gruvbox/wiki/Installation
-	-- use "doums/darcula"
-	-- use "ttys3/base16-vim"
-
-	-- {
-	-- 	"arcticicestudio/nord-vim",
-	-- 	config = function()
-	-- 		vim.cmd [[ silent! colorscheme nord ]]
-	-- 	end,
-	-- }
-
-	-- disabled due to bug https://github.com/shaunsingh/nord.nvim/issues/24
-	-- {
-	-- 	"shaunsingh/nord.nvim",
-	-- 	config = function()
-	-- 		-- require("nord").set()
-	-- 	end,
-	-- }
-
-	-- use "sainnhe/gruvbox-material"
-	-- use "hzchirs/vim-material"
-
-	-- {
-	-- 	"npxbr/gruvbox.nvim",
-	-- 	requires = { "rktjmp/lush.nvim" },
-	-- 	config = function()
-	-- 		Variable.g {
-	-- 			gruvbox_bold = 0,
-	-- 			gruvbox_italic = 1,
-	-- 			-- " gruvbox_transparent_bg = 0
-	-- 			-- " soft, medium and hard
-	-- 			-- gruvbox_contrast_dark = "soft",
-	-- 			gruvbox_contrast_dark = "medium",
-	-- 		}
-	-- 		vim.go.background = "dark"
-	-- 		-- vim.cmd "colorscheme gruvbox"
-	-- 		-- vim.cmd [[ silent! colorscheme gruvbox ]]
-	-- 		-- print "colorscheme set to gruvbox"
-	-- 	end,
-	-- }
-
-	-- " https://github.com/olimorris/onedark.nvim
-	-- use "olimorris/onedark.nvim"
-
-	-- https://github.com/projekt0n/github-nvim-theme
-	-- Github theme for Neovim
-	-- {
-	-- 	"projekt0n/github-nvim-theme",
-
-	-- 	config = function()
-	-- 		require("github-theme").setup {
-	-- 			-- set theme variant (options: dark/dark_default/dimmed/light/light_default)
-	-- 			theme_style = "dark",
-	-- 			-- theme_style = "dimmed",
-	-- 		}
-	-- 	end,
-	-- }
 }, {
 	log = { level = os.getenv "PACKER_LOG_LEVEL" or "warn" },
 	display = {
