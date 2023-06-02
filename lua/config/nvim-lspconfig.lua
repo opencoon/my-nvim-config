@@ -27,7 +27,7 @@ nnoremap { "<space>ee", "<cmd>lua vim.diagnostic.setloclist()<CR>", silent = tru
 -- toggle diagnostics loclist, open loclist if there are diagnostics severity >= WARN, else show a notify info. if loclist open, close it
 -- nnoremap { "<space>e", "<cmd>lua vim.diagnostic.setloclist({severity = vim.diagnostic.severity.WARN})<CR>", silent = true }
 nnoremap {
-	"<space>e",
+	"<space>er",
 	function()
 		local loc = vim.fn.getloclist(0)
 		if loc and type(loc) == "table" and #loc > 0 then
@@ -109,7 +109,7 @@ local mix_attach = function(client)
 	local has_lsp_signature, lsp_signature = pcall(require, "lsp_signature")
 	if has_lsp_signature then
 		local cfg = {
-			bind = true,     -- This is mandatory, otherwise border config won't get registered.
+			bind = false,    -- This is mandatory, otherwise border config won't get registered.
 			-- If you want to hook lspsaga or other signature handler, pls set to false
 			doc_lines = 10,  -- only show one line of comment set to 0 if you do not want API comments be shown
 			hint_enable = true, -- virtual hint enable
@@ -120,7 +120,7 @@ local mix_attach = function(client)
 			},
 			decorator = { "`", "`" }, -- or decorator = {"***", "***"}  decorator = {"**", "**"} see markdown help
 		}
-		lsp_signature.on_attach(cfg)
+		-- lsp_signature.on_attach(cfg)
 	end
 end
 
@@ -231,9 +231,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = vim.lsp.buf.format,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.go" },
-	callback = go_org_imports,
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = { "*.go" },
+-- 	callback = go_org_imports,
+-- })
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+	pattern = '*.go',
+	callback = function()
+		vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+	end
 })
 
 -- https://clangd.llvm.org/features.html
