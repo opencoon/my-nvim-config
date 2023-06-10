@@ -46,9 +46,13 @@ require("lazy").setup({
 		},
 		config = function()
 			nnoremap { "<leader>f", ":NeoTreeFocusToggle<CR>", silent = true }
+			nnoremap { "<leader>v", ":NeoTreeFloatToggle<CR>", silent = true }
 			nnoremap { "<leader>fd", ":NeoTreeFocus<CR>", silent = true }
 			nnoremap { "<leader>ff", ":NeoTreeReveal<CR>", silent = true }
 		end
+	},
+	{
+		'simrat39/inlay-hints.nvim',
 	},
 	{
 		"github/copilot.vim",

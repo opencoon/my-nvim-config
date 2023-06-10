@@ -270,6 +270,8 @@ noremap { "g0", ":only<CR>", silent = true }
 --   " change cursor position in insert mode
 inoremap { "<C-h>", "<left>" }
 inoremap { "<C-l>", "<right>" }
+inoremap { '<C-j>', '<C-Left>' }
+inoremap { '<C-k>', '<C-Right>' }
 
 inoremap { "<C-u>", "<C-g>u<C-u>" }
 
