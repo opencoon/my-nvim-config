@@ -41,17 +41,11 @@ end
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map("n", "<leader>gi", '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 map("t", "<leader>gi", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
-map("n", "<A-u>", "<CMD>lua __fterm_lazygit()<CR>", opts)
 map("n", "<leader>gu", "<CMD>lua __fterm_lazygit()<CR>", opts)
-map("t", "<A-u>", "<C-\\><C-n><CMD>lua __fterm_lazygit()<CR>", opts)
 map("t", "<leader>gu", "<C-\\><C-n><CMD>lua __fterm_lazygit()<CR>", opts)
 
-map("n", "<A-g>", "<CMD>lua __fterm_termp()<CR>", opts)
 map("n", "<leader>gg", "<CMD>lua __fterm_termp()<CR>", opts)
-map("t", "<A-g>", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)
 map("t", "<leader>gg", "<C-\\><C-n><CMD>lua __fterm_termp()<CR>", opts)
