@@ -372,22 +372,22 @@ require("lazy").setup({
 	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
-	{
-		"tzachar/cmp-tabnine",
-		build = "./install.sh",
-		dependencies = { "hrsh7th/nvim-cmp" },
-		-- https://github.com/tzachar/cmp-tabnine#setup
-		config = function()
-			local tabnine = require "cmp_tabnine.config"
-			tabnine:setup {
-				max_lines = 1000,
-				max_num_results = 20,
-				sort = true,
-				run_on_every_keystroke = true,
-				snippet_placeholder = "..",
-			}
-		end,
-	},
+	-- {
+	-- 	"tzachar/cmp-tabnine",
+	-- 	build = "./install.sh",
+	-- 	dependencies = { "hrsh7th/nvim-cmp" },
+	-- 	-- https://github.com/tzachar/cmp-tabnine#setup
+	-- 	config = function()
+	-- 		local tabnine = require "cmp_tabnine.config"
+	-- 		tabnine:setup {
+	-- 			max_lines = 1000,
+	-- 			max_num_results = 20,
+	-- 			sort = true,
+	-- 			run_on_every_keystroke = true,
+	-- 			snippet_placeholder = "..",
+	-- 		}
+	-- 	end,
+	-- },
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()

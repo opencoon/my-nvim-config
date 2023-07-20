@@ -225,24 +225,6 @@ function _G.go_org_imports(options)
 	end
 end
 
--- https://github.com/neovim/nvim-lspconfig/issues/115
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.go" },
-	callback = vim.lsp.buf.format,
-})
-
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	pattern = { "*.go" },
--- 	callback = go_org_imports,
--- })
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = '*.go',
-	callback = function()
-		vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-	end
-})
-
 -- https://clangd.llvm.org/features.html
 lsp.clangd.setup {
 	-- remove support to proto due to includes error
