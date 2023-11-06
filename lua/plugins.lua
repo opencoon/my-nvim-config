@@ -5,15 +5,15 @@ require "utils"
 -- nnoremap { '<leader>hello', function() print("Hello world, from lua") end }
 
 require("lazy").setup({
-	{
-		"folke/which-key.nvim",
-		config = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-			require("which-key").setup {
-			}
-		end
-	},
+	-- {
+	-- 	"folke/which-key.nvim",
+	-- 	config = function()
+	-- 		vim.o.timeout = true
+	-- 		vim.o.timeoutlen = 300
+	-- 		require("which-key").setup {
+	-- 		}
+	-- 	end
+	-- },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",

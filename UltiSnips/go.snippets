@@ -65,11 +65,35 @@ snippet htcuby "HT created/updated by"
 	CreatedByName string \`json:"created_by_name"\`
 	UpdatedByName string \`json:"updated_by_name"\`
 
-snippet htgormdns "HT gorm dns"
-	mgDns := "${3}:${2}@tcp(${1}:3306)/HT_MGDB?charset=utf8mb4&parseTime=True&loc=Local"
-	mgDB, err := gorm.Open(mysql.Open(mgDns), &gorm.Config{})
-	if err != nil {
-		return nil, err
-	}
-	${0}
+snippet htswaglist "HT swag list"
+	// @Summary 获取${1}列表
+	// @Description 获取${1}列表
+	// @Tags ${2}
+	// @Accept json
+	// @Produce json
+	// @Param Authorization header string true "token"
+	// @Param req query  ${3} true "req"
+	// @Success 200 {object} util.WebResponseStruct[model.GeneralListResponse[${4}]]
+	// @Router /cms_api/${0}/list [get]
 
+snippet htswagadd "HT swag add/update"
+	// @Summary 新增${1}
+	// @Description 新增${1}
+	// @Tags ${2}
+	// @Accept json
+	// @Produce json
+	// @Param Authorization header string true "token"
+	// @Param req body ${3} true "body"
+	// @Success 200 {object} util.WebResponseStruct[string]
+	// @Router /cms_api/${0}/add [post]
+
+snippet htswagdetail "HT swag detail"
+	// @Summary 获取${1}详情
+	// @Description 获取${1}详情
+	// @Tags ${2}
+	// @Accept json
+	// @Produce json
+	// @Param Authorization header string true "token"
+	// @Param req query ${3} true "req"
+	// @Success 200 {object} util.WebResponseStruct[${4}]
+	// @Router /cms_api/${0}/detail [get]
