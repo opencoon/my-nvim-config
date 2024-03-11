@@ -5,15 +5,15 @@ require "utils"
 -- nnoremap { '<leader>hello', function() print("Hello world, from lua") end }
 
 require("lazy").setup({
-	-- {
-	-- 	"folke/which-key.nvim",
-	-- 	config = function()
-	-- 		vim.o.timeout = true
-	-- 		vim.o.timeoutlen = 300
-	-- 		require("which-key").setup {
-	-- 		}
-	-- 	end
-	-- },
+	{
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup {
+			}
+		end
+	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -24,7 +24,7 @@ require("lazy").setup({
 			{
 				-- only needed if you want to use the commands with "_with_window_picker" suffix
 				's1n7ax/nvim-window-picker',
-				branch = "v1.*",
+				tag = "v1.0",
 				config = function()
 					require 'window-picker'.setup({
 						autoselect_one = true,
@@ -45,10 +45,8 @@ require("lazy").setup({
 			}
 		},
 		config = function()
-			nnoremap { "<leader>f", ":NeoTreeFocusToggle<CR>", silent = true }
-			nnoremap { "<leader>v", ":NeoTreeFloatToggle<CR>", silent = true }
-			nnoremap { "<leader>fd", ":NeoTreeFocus<CR>", silent = true }
-			nnoremap { "<leader>ff", ":NeoTreeReveal<CR>", silent = true }
+			nnoremap { "<leader>f", ":Neotree focus<CR>", silent = true }
+			nnoremap { "<leader>ff", ":Neotree reveal<CR>", silent = true }
 		end
 	},
 	{
@@ -132,6 +130,12 @@ require("lazy").setup({
 		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		config = function()
 			require("mason").setup()
+		end
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup()
 		end
 	},
 	{
@@ -486,13 +490,12 @@ require("lazy").setup({
 	},
 
 	-- https://github.com/glepnir/indent-guides.nvim
-	{
-		"glepnir/indent-guides.nvim",
-		config = function()
-			require "config.indent-guides"
-		end,
-	},
-
+	-- {
+	-- 	"glepnir/indent-guides.nvim",
+	-- 	config = function()
+	-- 		require "config.indent-guides"
+	-- 	end,
+	-- },
 	{
 		"kylechui/nvim-surround",
 		config = function()
